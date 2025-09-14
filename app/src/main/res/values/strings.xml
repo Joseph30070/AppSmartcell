@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SmartcellApp</string>
+    <string name="title_activity_horarios">HorariosActivity</string>
+</resources>

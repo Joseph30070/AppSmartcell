@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Logo de la academia -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_logo_smartcell"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"/>
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bienvenido a Smartcell App"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Scroll con botones -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <GridLayout
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:padding="16dp"
+            android:alignmentMode="alignMargins">
+
+            <!-- Estilo aplicado a todos los botones -->
+            <Button
+                android:id="@+id/btnPaginaWeb"
+                style="@style/SmartcellButton"
+                android:drawableTop="@drawable/ic_web"
+                android:text="Página Web"/>
+
+            <Button
+                android:id="@+id/btnCursos"
+                style="@style/SmartcellButton"
+                android:drawableTop="@drawable/ic_courses"
+                android:text="Mis Cursos"/>
+
+            <Button
+                android:id="@+id/btnHorario"
+                style="@style/SmartcellButton"
+                android:drawableTop="@drawable/ic_schedule"
+                android:text="Horario"/>
+
+            <Button
+                android:id="@+id/btnCuenta"
+                style="@style/SmartcellButton"
+                android:drawableTop="@drawable/ic_account"
+                android:text="Mi Cuenta" />
+
+            <Button
+                android:id="@+id/btnCumpleanos"
+                style="@style/SmartcellButton"
+                android:drawableTop="@drawable/ic_birthday"
+                android:text="Cumpleaños"/>
+
+            <Button
+                android:id="@+id/btnEnlaces"
+                style="@style/SmartcellButton"
+                android:drawableTop="@drawable/ic_links"
+                android:text="Enlaces"/>
+
+            <Button
+                android:id="@+id/btnPagos"
+                style="@style/SmartcellButton"
+                android:drawableTop="@drawable/ic_payments"
+                android:text="Pagos"/>
+
+            <Button
+                android:id="@+id/btnIdentificacion"
+                style="@style/SmartcellButton"
+                android:drawableTop="@drawable/ic_id"
+                android:text="Identificación" />
+
+        </GridLayout>
+    </ScrollView>
+</LinearLayout>
+
+
+
+
+
+
