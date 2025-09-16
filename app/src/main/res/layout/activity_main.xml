@@ -5,16 +5,17 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     tools:context=".MainActivity">
 
-    <!-- Logo de la academia -->
+    <!-- Logo -->
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:src="@drawable/ic_logo_smartcell"
         android:layout_gravity="center"
-        android:layout_marginTop="24dp"/>
+        android:layout_marginTop="32dp"/>
 
     <!-- Título -->
     <TextView
@@ -22,79 +23,144 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bienvenido a Smartcell App"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:textStyle="bold"
-        android:textColor="#000000"
+        android:textColor="@android:color/black"
         android:layout_gravity="center"
         android:layout_marginTop="12dp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="24dp"/>
 
-    <!-- Scroll con botones -->
+    <!-- Botones con scroll -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:padding="8dp">
 
         <GridLayout
             android:id="@+id/main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="2"
-            android:padding="16dp"
-            android:alignmentMode="alignMargins">
+            android:alignmentMode="alignMargins"
+            android:useDefaultMargins="true">
 
-            <!-- Estilo aplicado a todos los botones -->
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnPaginaWeb"
-                style="@style/SmartcellButton"
-                android:drawableTop="@drawable/ic_web"
-                android:text="Página Web"/>
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:text="Página Web"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/colorPrimary"
+                app:icon="@drawable/ic_web"
+                app:iconTint="@color/white"
+                app:iconGravity="top"
+                app:iconSize="36dp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCursos"
-                style="@style/SmartcellButton"
-                android:drawableTop="@drawable/ic_courses"
-                android:text="Mis Cursos"/>
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:text="Mis Cursos"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/colorPrimary"
+                app:icon="@drawable/ic_courses"
+                app:iconTint="@color/white"
+                app:iconGravity="top"
+                app:iconSize="36dp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnHorario"
-                style="@style/SmartcellButton"
-                android:drawableTop="@drawable/ic_schedule"
-                android:text="Horario"/>
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:text="Horario"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/colorPrimary"
+                app:icon="@drawable/ic_schedule"
+                app:iconTint="@color/white"
+                app:iconGravity="top"
+                app:iconSize="36dp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCuenta"
-                style="@style/SmartcellButton"
-                android:drawableTop="@drawable/ic_account"
-                android:text="Mi Cuenta" />
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:text="Mi Cuenta"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/colorPrimary"
+                app:icon="@drawable/ic_account"
+                app:iconTint="@color/white"
+                app:iconGravity="top"
+                app:iconSize="36dp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCumpleanos"
-                style="@style/SmartcellButton"
-                android:drawableTop="@drawable/ic_birthday"
-                android:text="Cumpleaños"/>
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:text="Cumpleaños"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/colorPrimary"
+                app:icon="@drawable/ic_birthday"
+                app:iconTint="@color/white"
+                app:iconGravity="top"
+                app:iconSize="36dp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnEnlaces"
-                style="@style/SmartcellButton"
-                android:drawableTop="@drawable/ic_links"
-                android:text="Enlaces"/>
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:text="Enlaces"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/colorPrimary"
+                app:icon="@drawable/ic_links"
+                app:iconTint="@color/white"
+                app:iconGravity="top"
+                app:iconSize="36dp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnPagos"
-                style="@style/SmartcellButton"
-                android:drawableTop="@drawable/ic_payments"
-                android:text="Pagos"/>
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:text="Pagos"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/colorPrimary"
+                app:icon="@drawable/ic_payments"
+                app:iconTint="@color/white"
+                app:iconGravity="top"
+                app:iconSize="36dp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnIdentificacion"
-                style="@style/SmartcellButton"
-                android:drawableTop="@drawable/ic_id"
-                android:text="Identificación" />
-
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:text="Identificación"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/colorPrimary"
+                app:icon="@drawable/ic_id"
+                app:iconTint="@color/white"
+                app:iconGravity="top"
+                app:iconSize="36dp" />
         </GridLayout>
     </ScrollView>
 </LinearLayout>
+
+
 
 
 

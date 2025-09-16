@@ -3,4 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="teal_700">#1E88E5</color>
+    <color name="colorPrimary">#1976D2</color> <!-- Azul -->
+    <color name="colorOnPrimary">#FFFFFF</color> <!-- Blanco -->
+    <color name="colorBackground">#F5F5F5</color> <!-- Gris claro -->
+
 </resources>
