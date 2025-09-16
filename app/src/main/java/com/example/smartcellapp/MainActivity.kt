@@ -36,36 +36,46 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // Botón Cursos
         btnCursos.setOnClickListener {
             val intent = Intent(this, CursosActivity::class.java)
             startActivity(intent)
         }
 
+        // Botón Horarios
         btnHorario.setOnClickListener {
             val intent = Intent(this, HorariosActivity::class.java)
             startActivity(intent)
         }
 
-
+        // Botón Cuenta
         btnCuenta.setOnClickListener {
             val intent = Intent(this, CuentaActivity::class.java)
             startActivity(intent)
         }
 
+        // Botón Cumpleaños
         btnCumpleanos.setOnClickListener {
-            Toast.makeText(this, "Abrir Cumpleaños", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, CumpleanosActivity::class.java)
+            startActivity(intent)
         }
 
+        // Botón Enlaces
         btnEnlaces.setOnClickListener {
-            Toast.makeText(this, "Abrir Enlaces", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, EnlacesActivity::class.java)
+            startActivity(intent)
         }
 
+        // Botón Pagos
         btnPagos.setOnClickListener {
-            Toast.makeText(this, "Abrir Pagos", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, PagosActivity::class.java)
+            startActivity(intent)
         }
 
+        // Botón Identificación
         btnIdentificacion.setOnClickListener {
-            Toast.makeText(this, "Abrir Identificación", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, IdentificacionActivity::class.java)
+            startActivity(intent)
         }
     }
 }
