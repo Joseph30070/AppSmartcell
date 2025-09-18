@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Esquinas redondeadas -->
+    <corners android:radius="12dp"/>
+
+    <!-- Degradado de colores de Instagram -->
+    <gradient
+        android:angle="45"
+        android:startColor="#F58529"
+        android:centerColor="#DD2A7B"
+        android:endColor="#515BD4"
+        android:type="linear"/>
+</shape>

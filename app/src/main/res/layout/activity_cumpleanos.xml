@@ -7,23 +7,40 @@
     android:layout_height="match_parent"
     tools:context=".CumpleanosActivity">
 
-    <!-- Texto de indicacion para que te guies sobre lo que ira -->
-    <TextView
-        android:id="@+id/txtCumpleanos"
+    <!-- Barra superior azul -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarCumpleanos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Aquí se listarán los cumpleaños de los alumnos por mes."
-        android:textSize="18sp"
-        android:textColor="@android:color/black"
-        android:textAlignment="center"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:background="@color/teal_700"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:title="Cumpleaños"
+        app:titleTextColor="@android:color/white" />
 
-    <!-- Aquí irá el diseño de la lista de cumpleaños -->
+    <!-- Contenedor dinámico para la lista de cumpleaños -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:importantForAccessibility="no"
+        app:layout_constraintTop_toBottomOf="@id/toolbarCumpleanos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:id="@+id/contenedorCumpleanos"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"/>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
 
