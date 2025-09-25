@@ -41,6 +41,10 @@
             android:textColor="@android:color/white"
             android:background="@drawable/btn_facebook_bg"
             app:backgroundTint="@null"
+            app:icon="@drawable/ic_facebook"
+            app:iconTint="@android:color/white"
+            app:iconGravity="start"
+            app:iconSize="32dp"
             android:layout_marginBottom="16dp"
             android:padding="12dp" />
 
@@ -53,9 +57,31 @@
             android:textColor="@android:color/white"
             android:background="@drawable/btn_instagram_bg"
             app:backgroundTint="@null"
+            app:icon="@drawable/ic_instagram"
+            app:iconTint="@android:color/white"
+            app:iconGravity="start"
+            app:iconSize="32dp"
+            android:layout_marginBottom="16dp"
             android:padding="12dp" />
+
+        <!-- Botón TikTok -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTiktok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_tiktok_bg"
+            android:padding="12dp"
+            android:text="TikTok"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="16dp"
+            app:backgroundTint="@null"
+            app:icon="@drawable/ic_tiktok"
+            app:iconGravity="start"
+            app:iconSize="32dp"
+            app:iconTint="@android:color/white" />
 
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
 

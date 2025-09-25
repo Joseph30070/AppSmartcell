@@ -15,6 +15,7 @@
         android:theme="@style/Theme.SmartcellApp">
         <activity
             android:name=".IdentificacionActivity"
+            android:screenOrientation="landscape"
             android:exported="false" />
         <activity
             android:name=".PagosActivity"
