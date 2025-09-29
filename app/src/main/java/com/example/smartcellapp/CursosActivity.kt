@@ -3,7 +3,6 @@ package com.example.smartcellapp
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ListView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -44,7 +43,40 @@ class CursosActivity : AppCompatActivity() {
         // Evento al hacer clic en un curso
         listView.setOnItemClickListener { _, _, position, _ ->
             val cursoSeleccionado = cursos[position]
-            Toast.makeText(this, "Abriste $cursoSeleccionado", Toast.LENGTH_SHORT).show()
+            val descripcion = when (cursoSeleccionado) {
+                "🤖 Robótica Avanzada" -> """
+                    En este curso aprenderás a programar robots, usar sensores, motores y realizar proyectos de automatización.
+                    - Duración: 4 meses
+                    - Nivel: Intermedio
+                    - Modalidad: Presencial / Virtual
+                """.trimIndent()
+                "🔌 Electrónica Digital" -> """
+                    Aprende circuitos lógicos, compuertas, microcontroladores y fundamentos de electrónica aplicada.
+                    - Duración: 4 meses
+                    - Nivel: Básico - Intermedio
+                    - Modalidad: Presencial
+                """.trimIndent()
+                "💻 Reparación de Laptops" -> """
+                    Curso orientado al diagnóstico, mantenimiento y reparación de laptops modernas.
+                    - Duración: 4 meses
+                    - Nivel: Básico
+                    - Modalidad: Presencial / Virtual
+                """.trimIndent()
+                "🖥️ Reparación de PCs" -> """
+                    Domina el armado, mantenimiento, instalación de software y solución de problemas en computadoras de escritorio.
+                    - Duración: 4 meses
+                    - Nivel: Básico - Intermedio
+                    - Modalidad: Presencial
+                """.trimIndent()
+                else -> "Información no disponible."
+            }
+
+            // Mostrar descripción en un AlertDialog
+            androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle(cursoSeleccionado)
+                .setMessage(descripcion)
+                .setPositiveButton("OK", null)
+                .show()
         }
     }
 
@@ -54,3 +86,4 @@ class CursosActivity : AppCompatActivity() {
         return true
     }
 }
+

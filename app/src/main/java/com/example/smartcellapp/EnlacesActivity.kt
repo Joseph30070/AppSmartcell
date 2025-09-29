@@ -3,6 +3,7 @@ package com.example.smartcellapp
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Button   // 👈 Import necesario
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -43,19 +44,30 @@ class EnlacesActivity : AppCompatActivity() {
         }
 
         // Botón Facebook
-        findViewById<android.widget.Button>(R.id.btnFacebook).setOnClickListener {
-            abrirEnNavegador("https://www.facebook.com/profile.php?id=61574682905135&locale=es_LA") //link de facebook
+        findViewById<Button>(R.id.btnFacebook).setOnClickListener {
+            abrirEnNavegador("https://www.facebook.com/profile.php?id=61574682905135&locale=es_LA")
         }
 
         // Botón Instagram
-        findViewById<android.widget.Button>(R.id.btnInstagram).setOnClickListener {
-            abrirEnNavegador("https://www.instagram.com/academiasmartcell") //link de instagram
+        findViewById<Button>(R.id.btnInstagram).setOnClickListener {
+            abrirEnNavegador("https://www.instagram.com/academiasmartcell")
         }
 
         // Botón TikTok
-        findViewById<android.widget.Button>(R.id.btnTiktok).setOnClickListener {
-            abrirEnNavegador("https://www.tiktok.com/@academia.smartcell") // link de tiktok
+        findViewById<Button>(R.id.btnTiktok).setOnClickListener {
+            abrirEnNavegador("https://www.tiktok.com/@academia.smartcell")
         }
+
+        // Botón WhatsApp
+        findViewById<Button>(R.id.btnWhatsapp).setOnClickListener {
+            val phone = "51950262596" // 👈 número con código de país (ej: 51 para Perú)
+            val message = "Hola, tengo una consulta"
+            val url = "https://wa.me/$phone?text=${Uri.encode(message)}"
+
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            startActivity(intent)
+        }
+
     }
 
     // Flecha de regreso
@@ -64,3 +76,4 @@ class EnlacesActivity : AppCompatActivity() {
         return true
     }
 }
+
