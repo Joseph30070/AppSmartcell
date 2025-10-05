@@ -1,53 +1,96 @@
 package com.example.smartcellapp
 
 import android.os.Bundle
-import android.widget.Switch
-import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
+import android.view.LayoutInflater
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Spinner
 
 class PagosActivity : AppCompatActivity() {
 
     private lateinit var tvTotalPeriodo: TextView
+    private lateinit var listaCuotas: LinearLayout
+    private lateinit var tvDuracionCurso: TextView
     private var totalPeriodo = 0.0
-    private val montoCuota = 200.0  // cada cuota cuesta 200 por ahora como ejemplo
+    private val montoCuota = 200.0
+
+    // Cursos y sus cuotas
+    private val cursos = mapOf(
+        "Robótica Avanzada" to 3,
+        "Electrónica Digital" to 2,
+        "Reparación de Laptops" to 3,
+        "Reparación de PCs" to 4
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_pagos)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
-        // Configuramos el Toolbar como ActionBar
+        // Ajustes iniciales
         val toolbar = findViewById<Toolbar>(R.id.toolbarPagos)
         setSupportActionBar(toolbar)
-
-        // Activamos la flecha de retroceso
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
-        // Inicializamos el TextView del total
         tvTotalPeriodo = findViewById(R.id.tvTotalPeriodo)
+        listaCuotas = findViewById(R.id.listaCuotas)
+        tvDuracionCurso = findViewById(R.id.tvDuracionCurso)
 
-        // Switches de cuotas proximanmente hacer que se generern automaticamente
-        val switchCuota1: Switch = findViewById(R.id.switchCuota1)
-        val switchCuota2: Switch = findViewById(R.id.switchCuota2)
-        val switchCuota3: Switch = findViewById(R.id.switchCuota3)
+        // Spinner de cursos
+        val spinnerCursos: Spinner = findViewById(R.id.spinnerCursos)
+        val listaCursos = mutableListOf("Seleccione su curso a pagar")
+        listaCursos.addAll(cursos.keys)
 
-        // Configurar cada switch
-        configurarSwitch(switchCuota1)
-        configurarSwitch(switchCuota2)
-        configurarSwitch(switchCuota3)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listaCursos)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerCursos.adapter = adapter
 
-        // Mostrar el total inicial
+        // Listener del Spinner
+        spinnerCursos.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                val cursoSeleccionado = parent.getItemAtPosition(position).toString()
+
+                if (cursoSeleccionado == "Seleccione su curso a pagar") {
+                    listaCuotas.removeAllViews()
+                    tvDuracionCurso.text = "Duración del curso:"
+                    totalPeriodo = 0.0
+                    actualizarTotal()
+                } else {
+                    mostrarCuotas(cursoSeleccionado)
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {}
+        }
+    }
+
+    // Genera dinámicamente las cuotas según el curso
+    private fun mostrarCuotas(curso: String) {
+        listaCuotas.removeAllViews()
+        totalPeriodo = 0.0
+
+        val cantidadCuotas = cursos[curso] ?: 0
+        val inflater = LayoutInflater.from(this)
+
+        // Mostrar duración arriba de las cuotas
+        tvDuracionCurso.text = "Duración del curso: $cantidadCuotas meses"
+
+        for (i in 1..cantidadCuotas) {
+            val cuotaView = inflater.inflate(R.layout.item_cuota, listaCuotas, false)
+
+            val tvInfo: TextView = cuotaView.findViewById(R.id.tvDescripcionCuota)
+            val switch: Switch = cuotaView.findViewById(R.id.switchCuota)
+
+            tvInfo.text = "Cuota $i - S/. $montoCuota\nVence: 30/${i.toString().padStart(2,'0')}/2025"
+
+            configurarSwitch(switch)
+            listaCuotas.addView(cuotaView)
+        }
+
         actualizarTotal()
     }
 
@@ -68,7 +111,6 @@ class PagosActivity : AppCompatActivity() {
         tvTotalPeriodo.text = "Total del Periodo\nS/. %.2f".format(totalPeriodo)
     }
 
-    // Acción al presionar la flecha
     override fun onSupportNavigateUp(): Boolean {
         onBackPressedDispatcher.onBackPressed()
         return true
