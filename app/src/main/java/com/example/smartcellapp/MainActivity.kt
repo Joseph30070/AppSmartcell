@@ -2,6 +2,8 @@ package com.example.smartcellapp
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.PopupMenu
 import android.content.Intent
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -81,6 +83,29 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, IdentificacionActivity::class.java)
             startActivity(intent)
         }
+
+        // ============================================
+        // 🔹 NUEVO: Menú de tres puntos para cerrar sesión
+        // ============================================
+        val btnMenu = findViewById<ImageView>(R.id.btnMenu)
+        btnMenu?.setOnClickListener { view ->
+            val popupMenu = PopupMenu(this, view)
+            popupMenu.menu.add("Cerrar sesión")
+
+            popupMenu.setOnMenuItemClickListener { item ->
+                if (item.title == "Cerrar sesión") {
+                    // Regresa al login
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish() // Cierra la actividad actual
+                    true
+                } else {
+                    false
+                }
+            }
+            popupMenu.show()
+        }
     }
 }
+
 
