@@ -6,14 +6,24 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.smartcellapp.data.dao.AlumnoDao
 import com.example.smartcellapp.data.entity.Alumno
+import com.example.smartcellapp.data.dao.CursoDao
+import com.example.smartcellapp.data.dao.MatriculaDao
+import com.example.smartcellapp.data.entity.Curso
+import com.example.smartcellapp.data.entity.Matricula
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [Alumno::class], version = 1, exportSchema = false)
+@Database(
+    entities = [Alumno::class, Curso::class, Matricula::class],
+    version = 2,
+    exportSchema = false
+)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun alumnoDao(): AlumnoDao
+    abstract fun cursoDao(): CursoDao
+    abstract fun matriculaDao(): MatriculaDao
 
     companion object {
         @Volatile
@@ -25,11 +35,20 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "smartcell_db"
-                ).build()
+                )
+                    .fallbackToDestructiveMigration() // ✅ Soluciona el error de migración
+                    .build()
 
-                // Cargar datos iniciales solo una vez
                 CoroutineScope(Dispatchers.IO).launch {
-                    val dao = instance.alumnoDao()
+                    val alumnoDao = instance.alumnoDao()
+                    val cursoDao = instance.cursoDao()
+
+                    val cursos = listOf(
+                        Curso(idCurso = 1, nombreCurso = "Reparación de Celulares"),
+                        Curso(idCurso = 2, nombreCurso = "Robótica"),
+                        Curso(idCurso = 3, nombreCurso = "Reparación de Laptops")
+                    )
+                    cursos.forEach { cursoDao.insertarCurso(it) }
 
                     val alumnos = listOf(
                         Alumno(
@@ -39,7 +58,7 @@ abstract class AppDatabase : RoomDatabase() {
                             dni = "12345678",
                             correo = "luis.gomez@gmail.pe",
                             celular = "987654321",
-                            cursoMatriculado = "Reparación de Celulares",
+                            idCurso = 1,
                             fechaNacimiento = "2004-02-10"
                         ),
                         Alumno(
@@ -49,12 +68,11 @@ abstract class AppDatabase : RoomDatabase() {
                             dni = "87654321",
                             correo = "maria.rosas@gmail.pe",
                             celular = "912345678",
-                            cursoMatriculado = "Robótica",
+                            idCurso = 2,
                             fechaNacimiento = "2003-08-25"
                         )
                     )
-
-                    alumnos.forEach { dao.insertarAlumno(it) }
+                    alumnos.forEach { alumnoDao.insertarAlumno(it) }
                 }
 
                 INSTANCE = instance
@@ -63,4 +81,6 @@ abstract class AppDatabase : RoomDatabase() {
         }
     }
 }
+
+
 
