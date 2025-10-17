@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // ============================================
-        // 🔹 NUEVO: Menú de tres puntos para cerrar sesión
+        //  NUEVO: Menú de tres puntos para cerrar sesión
         // ============================================
         val btnMenu = findViewById<ImageView>(R.id.btnMenu)
         btnMenu?.setOnClickListener { view ->

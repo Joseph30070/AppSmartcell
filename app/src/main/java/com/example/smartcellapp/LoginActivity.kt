@@ -44,9 +44,10 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "✅ Bienvenido alumno $idIngresado", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
-                finish() // cierra el login para que no regrese atrás
+                finish() // cierra el login para que no regrese
             } else {
                 Toast.makeText(this, "❌ ID o contraseña incorrectos", Toast.LENGTH_SHORT).show()
+
             }
         }
     }
