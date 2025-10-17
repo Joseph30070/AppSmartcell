@@ -74,7 +74,9 @@ class LoginActivity : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
 
+                        // ✅ Aquí agregamos el paso importante:
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        intent.putExtra("idAlumno", alumno.idAlumno) // 👈 enviamos el id
                         startActivity(intent)
                         finish()
                     } else {
@@ -89,5 +91,6 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 }
+
 
 

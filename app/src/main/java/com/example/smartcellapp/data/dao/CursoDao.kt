@@ -24,4 +24,9 @@ interface CursoDao {
     // Buscar curso por su nombre
     @Query("SELECT * FROM cursos WHERE nombreCurso = :nombre LIMIT 1")
     suspend fun buscarPorNombre(nombre: String): Curso?
+
+
+    @Query("SELECT * FROM cursos WHERE idCurso = :idCurso LIMIT 1")
+    suspend fun obtenerCursoPorId(idCurso: Int): Curso?
+
 }

@@ -14,11 +14,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_more_vert"
-    android:layout_gravity="end"
-    android:padding="16dp"
-    android:contentDescription="Menú"
-    android:clickable="true"
-    android:focusable="true" />
+        android:layout_gravity="end"
+        android:padding="16dp"
+        android:contentDescription="Menú"
+        android:clickable="true"
+        android:focusable="true" />
 
     <!-- Logo -->
     <ImageView
@@ -28,6 +28,19 @@
         android:src="@drawable/ic_logo_smartcell"
         android:layout_gravity="center"
         android:layout_marginTop="16dp" />
+
+    <!-- 🔹 NUEVO: Texto de bienvenida dinámico -->
+    <TextView
+        android:id="@+id/txtBienvenida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bienvenido"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
 
     <!-- Título -->
     <TextView
@@ -39,7 +52,7 @@
         android:textStyle="bold"
         android:textColor="@android:color/black"
         android:layout_gravity="center"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="24dp"/>
 
     <!-- Botones con scroll -->
@@ -171,6 +184,7 @@
         </GridLayout>
     </ScrollView>
 </LinearLayout>
+
 
 
 
