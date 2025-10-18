@@ -5,17 +5,21 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="@drawable/bg_gradient"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
-    <!-- Logo -->
+    <!-- Logo flotante -->
     <ImageView
         android:id="@+id/logo"
         android:layout_width="140dp"
         android:layout_height="140dp"
-        android:src="@drawable/ic_logo_smartcell"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp" />
+        android:src="@drawable/ic_logo_smartcell"
+        android:background="@drawable/logo_background"
+        android:elevation="12dp"
+        android:translationZ="8dp"
+        android:padding="16dp" />
 
     <!-- Título -->
     <TextView
@@ -23,19 +27,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bienvenido a Smartcell App"
-        android:textSize="22sp"
+        android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:layout_gravity="center"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="24dp" />
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"
+        android:shadowColor="#80000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="4" />
 
     <!-- Botones con scroll -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:padding="8dp">
+        android:clipToPadding="false"
+        android:paddingBottom="16dp">
 
         <GridLayout
             android:id="@+id/main"
@@ -45,120 +54,148 @@
             android:alignmentMode="alignMargins"
             android:useDefaultMargins="true">
 
+            <!-- Botones con estilo moderno -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnPaginaWeb"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="140dp"
                 android:layout_columnWeight="1"
-                android:layout_margin="8dp"
+                android:layout_margin="12dp"
                 android:text="Página Web"
                 android:textColor="@color/white"
                 android:backgroundTint="@color/colorPrimary"
+                android:elevation="4dp"
+                app:cornerRadius="16dp"
                 app:icon="@drawable/ic_web"
                 app:iconTint="@color/white"
                 app:iconGravity="top"
-                app:iconSize="36dp" />
+                app:iconSize="48dp"
+                app:iconPadding="12dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCursos"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="140dp"
                 android:layout_columnWeight="1"
-                android:layout_margin="8dp"
+                android:layout_margin="12dp"
                 android:text="Mis Cursos"
                 android:textColor="@color/white"
                 android:backgroundTint="@color/colorPrimary"
+                android:elevation="4dp"
+                app:cornerRadius="16dp"
                 app:icon="@drawable/ic_courses"
                 app:iconTint="@color/white"
                 app:iconGravity="top"
-                app:iconSize="36dp" />
+                app:iconSize="48dp"
+                app:iconPadding="12dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnHorario"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="140dp"
                 android:layout_columnWeight="1"
-                android:layout_margin="8dp"
+                android:layout_margin="12dp"
                 android:text="Horario"
                 android:textColor="@color/white"
                 android:backgroundTint="@color/colorPrimary"
+                android:elevation="4dp"
+                app:cornerRadius="16dp"
                 app:icon="@drawable/ic_schedule"
                 app:iconTint="@color/white"
                 app:iconGravity="top"
-                app:iconSize="36dp" />
+                app:iconSize="48dp"
+                app:iconPadding="12dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCuenta"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="140dp"
                 android:layout_columnWeight="1"
-                android:layout_margin="8dp"
+                android:layout_margin="12dp"
                 android:text="Mi Cuenta"
                 android:textColor="@color/white"
                 android:backgroundTint="@color/colorPrimary"
+                android:elevation="4dp"
+                app:cornerRadius="16dp"
                 app:icon="@drawable/ic_account"
                 app:iconTint="@color/white"
                 app:iconGravity="top"
-                app:iconSize="36dp" />
+                app:iconSize="48dp"
+                app:iconPadding="12dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCumpleanos"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="140dp"
                 android:layout_columnWeight="1"
-                android:layout_margin="8dp"
+                android:layout_margin="12dp"
                 android:text="Cumpleaños"
                 android:textColor="@color/white"
                 android:backgroundTint="@color/colorPrimary"
+                android:elevation="4dp"
+                app:cornerRadius="16dp"
                 app:icon="@drawable/ic_birthday"
                 app:iconTint="@color/white"
                 app:iconGravity="top"
-                app:iconSize="36dp" />
+                app:iconSize="48dp"
+                app:iconPadding="12dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnEnlaces"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="140dp"
                 android:layout_columnWeight="1"
-                android:layout_margin="8dp"
+                android:layout_margin="12dp"
                 android:text="Enlaces"
                 android:textColor="@color/white"
                 android:backgroundTint="@color/colorPrimary"
+                android:elevation="4dp"
+                app:cornerRadius="16dp"
                 app:icon="@drawable/ic_links"
                 app:iconTint="@color/white"
                 app:iconGravity="top"
-                app:iconSize="36dp" />
+                app:iconSize="48dp"
+                app:iconPadding="12dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnPagos"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="140dp"
                 android:layout_columnWeight="1"
-                android:layout_margin="8dp"
+                android:layout_margin="12dp"
                 android:text="Pagos"
                 android:textColor="@color/white"
                 android:backgroundTint="@color/colorPrimary"
+                android:elevation="4dp"
+                app:cornerRadius="16dp"
                 app:icon="@drawable/ic_payments"
                 app:iconTint="@color/white"
                 app:iconGravity="top"
-                app:iconSize="36dp" />
+                app:iconSize="48dp"
+                app:iconPadding="12dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnIdentificacion"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="140dp"
                 android:layout_columnWeight="1"
-                android:layout_margin="8dp"
+                android:layout_margin="12dp"
                 android:text="Identificación"
                 android:textColor="@color/white"
                 android:backgroundTint="@color/colorPrimary"
+                android:elevation="4dp"
+                app:cornerRadius="16dp"
                 app:icon="@drawable/ic_id"
                 app:iconTint="@color/white"
                 app:iconGravity="top"
-                app:iconSize="36dp" />
+                app:iconSize="48dp"
+                app:iconPadding="12dp" />
+
         </GridLayout>
     </ScrollView>
 </LinearLayout>
+
+
 
 
 
