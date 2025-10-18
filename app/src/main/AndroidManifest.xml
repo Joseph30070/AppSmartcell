@@ -15,9 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartcellApp">
 
-        <!-- Ahora LoginActivity será la primera en abrir -->
+        <!-- Ahora OnboardingActivity será la primera en abrir -->
         <activity
-            android:name=".LoginActivity"
+            android:name=".OnboardingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,43 +25,36 @@
             </intent-filter>
         </activity>
 
+        <!-- MainActivity sigue accesible -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+
         <activity
             android:name=".IdentificacionActivity"
             android:exported="false"
             android:screenOrientation="landscape" />
-
         <activity
             android:name=".PagosActivity"
             android:exported="false" />
-
         <activity
             android:name=".EnlacesActivity"
             android:exported="false" />
-
         <activity
             android:name=".CumpleanosActivity"
             android:exported="false" />
-
         <activity
             android:name=".CuentaActivity"
             android:exported="false" />
-
         <activity
             android:name=".HorariosActivity"
             android:exported="false" />
-
         <activity
             android:name=".CursosActivity"
             android:exported="false" />
-
         <activity
             android:name=".PaginaWebActivity"
             android:exported="false" />
-
-        <!-- MainActivity ya no es la principal, pero sigue siendo accesible -->
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" />
     </application>
 
 </manifest>

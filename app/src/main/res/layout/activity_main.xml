@@ -8,18 +8,6 @@
     android:background="@color/colorBackground"
     tools:context=".MainActivity">
 
-    <!-- Botón de tres puntitos (cerrar sesión) -->
-    <ImageView
-        android:id="@+id/btnMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_more_vert"
-    android:layout_gravity="end"
-    android:padding="16dp"
-    android:contentDescription="Menú"
-    android:clickable="true"
-    android:focusable="true" />
-
     <!-- Logo -->
     <ImageView
         android:id="@+id/logo"
@@ -40,7 +28,7 @@
         android:textColor="@android:color/black"
         android:layout_gravity="center"
         android:layout_marginTop="12dp"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginBottom="24dp" />
 
     <!-- Botones con scroll -->
     <ScrollView
@@ -171,6 +159,7 @@
         </GridLayout>
     </ScrollView>
 </LinearLayout>
+
 
 
 
