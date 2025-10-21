@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
     <!-- PERMITE CONECTARSE A INTERNET -->
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,22 +13,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartcellApp">
-
-        <!-- Ahora OnboardingActivity será la primera en abrir -->
+        <activity
+            android:name=".NosotrosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DocentesActivity"
+            android:exported="false" /> <!-- Ahora OnboardingActivity será la primera en abrir -->
         <activity
             android:name=".OnboardingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- MainActivity sigue accesible -->
+        </activity> <!-- MainActivity sigue accesible -->
         <activity
             android:name=".MainActivity"
             android:exported="true" />
-
         <activity
             android:name=".IdentificacionActivity"
             android:exported="false"

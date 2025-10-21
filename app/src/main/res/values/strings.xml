@@ -1,4 +1,32 @@
 <resources>
     <string name="app_name">SmartcellApp</string>
     <string name="title_activity_horarios">HorariosActivity</string>
+
+    <!-- Textos para NosotrosActivity -->
+    <string name="texto_principal_nosotros">
+        En SmartCell formamos profesionales con visión tecnológica, curiosos, innovadores y con pasión por la electrónica.
+        Buscamos impulsar el talento de cada estudiante brindando conocimientos sólidos en reparación de celulares, computadoras, robótica y nuevas tecnologías.
+        Creemos que el aprendizaje práctico transforma el futuro, y por eso cada clase es una experiencia real, enfocada en la solución de problemas del mundo actual.
+    </string>
+
+    <string name="texto_vision_nosotros">
+        Ser líderes en educación tecnológica práctica, inspirando a jóvenes a convertirse en profesionales capaces de reparar, crear y transformar el mundo digital.
+        En SmartCell buscamos que cada estudiante descubra su potencial innovador y que nuestros egresados sean referentes en servicio técnico, robótica y tecnología aplicada.
+    </string>
+
+    <string name="texto_que_ofrecemos">
+📱 Cursos especializados en reparación de celulares, laptops y PCs.\n
+🤖 Talleres de robótica e innovación tecnológica.\n
+💡 Capacitaciones en mantenimiento preventivo y diagnóstico avanzado.\n
+👨‍🏫 Docentes con experiencia real en el campo técnico.\n
+🎓 Certificaciones reconocidas y respaldo académico.\n
+🔧 Clases 100% prácticas con equipos reales.
+</string>
+
+
+
+    <string name="texto_final_ofrecemos">
+        En SmartCell no solo enseñamos a reparar, enseñamos a entender cómo funciona la tecnología que mueve el mundo.
+        Nuestro objetivo es que cada estudiante se convierta en un técnico integral, preparado para los desafíos del futuro.
+    </string>
 </resources>

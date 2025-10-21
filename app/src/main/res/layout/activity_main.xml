@@ -54,7 +54,7 @@
             android:alignmentMode="alignMargins"
             android:useDefaultMargins="true">
 
-            <!-- Botones con estilo moderno -->
+            <!-- Página Web -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnPaginaWeb"
                 android:layout_width="0dp"
@@ -72,6 +72,7 @@
                 app:iconSize="48dp"
                 app:iconPadding="12dp" />
 
+            <!-- Mis Cursos -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCursos"
                 android:layout_width="0dp"
@@ -89,6 +90,7 @@
                 app:iconSize="48dp"
                 app:iconPadding="12dp" />
 
+            <!-- Horario -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnHorario"
                 android:layout_width="0dp"
@@ -106,40 +108,43 @@
                 app:iconSize="48dp"
                 app:iconPadding="12dp" />
 
+            <!-- Docentes (antes Mi Cuenta) -->
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnCuenta"
+                android:id="@+id/btnDocentes"
                 android:layout_width="0dp"
                 android:layout_height="140dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="12dp"
-                android:text="Mi Cuenta"
+                android:text="Docentes"
                 android:textColor="@color/white"
                 android:backgroundTint="@color/colorPrimary"
                 android:elevation="4dp"
                 app:cornerRadius="16dp"
-                app:icon="@drawable/ic_account"
+                app:icon="@drawable/ic_teachers"
                 app:iconTint="@color/white"
                 app:iconGravity="top"
                 app:iconSize="48dp"
                 app:iconPadding="12dp" />
 
+            <!-- Sobre Nosotros (antes Cumpleaños) -->
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnCumpleanos"
+                android:id="@+id/btnSobreNosotros"
                 android:layout_width="0dp"
                 android:layout_height="140dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="12dp"
-                android:text="Cumpleaños"
+                android:text="Sobre Nosotros"
                 android:textColor="@color/white"
                 android:backgroundTint="@color/colorPrimary"
                 android:elevation="4dp"
                 app:cornerRadius="16dp"
-                app:icon="@drawable/ic_birthday"
+                app:icon="@drawable/ic_info"
                 app:iconTint="@color/white"
                 app:iconGravity="top"
                 app:iconSize="48dp"
                 app:iconPadding="12dp" />
 
+            <!-- Enlaces -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnEnlaces"
                 android:layout_width="0dp"
@@ -157,6 +162,7 @@
                 app:iconSize="48dp"
                 app:iconPadding="12dp" />
 
+            <!-- Pagos -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnPagos"
                 android:layout_width="0dp"
@@ -174,26 +180,10 @@
                 app:iconSize="48dp"
                 app:iconPadding="12dp" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnIdentificacion"
-                android:layout_width="0dp"
-                android:layout_height="140dp"
-                android:layout_columnWeight="1"
-                android:layout_margin="12dp"
-                android:text="Identificación"
-                android:textColor="@color/white"
-                android:backgroundTint="@color/colorPrimary"
-                android:elevation="4dp"
-                app:cornerRadius="16dp"
-                app:icon="@drawable/ic_id"
-                app:iconTint="@color/white"
-                app:iconGravity="top"
-                app:iconSize="48dp"
-                app:iconPadding="12dp" />
-
         </GridLayout>
     </ScrollView>
 </LinearLayout>
+
 
 
 

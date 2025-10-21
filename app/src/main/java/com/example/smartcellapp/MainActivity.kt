@@ -31,19 +31,18 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Referencias a los botones
+        // Referencias actualizadas a los botones
         val btnPaginaWeb = findViewById<MaterialButton>(R.id.btnPaginaWeb)
         val btnCursos = findViewById<MaterialButton>(R.id.btnCursos)
         val btnHorario = findViewById<MaterialButton>(R.id.btnHorario)
-        val btnCuenta = findViewById<MaterialButton>(R.id.btnCuenta)
-        val btnCumpleanos = findViewById<MaterialButton>(R.id.btnCumpleanos)
+        val btnDocentes = findViewById<MaterialButton>(R.id.btnDocentes)
+        val btnSobreNosotros = findViewById<MaterialButton>(R.id.btnSobreNosotros)
         val btnEnlaces = findViewById<MaterialButton>(R.id.btnEnlaces)
         val btnPagos = findViewById<MaterialButton>(R.id.btnPagos)
-        val btnIdentificacion = findViewById<MaterialButton>(R.id.btnIdentificacion)
 
         val botones = listOf(
-            btnPaginaWeb, btnCursos, btnHorario, btnCuenta,
-            btnCumpleanos, btnEnlaces, btnPagos, btnIdentificacion
+            btnPaginaWeb, btnCursos, btnHorario,
+            btnDocentes, btnSobreNosotros, btnEnlaces, btnPagos
         )
 
         // Animación de entrada (fade + slide) en cascada
@@ -64,52 +63,41 @@ class MainActivity : AppCompatActivity() {
         // Aplicar efecto shimmer futurista
         botones.forEach { aplicarShimmerFuturista(it) }
 
-        // Botones con sus actividades
+        // Acciones de los botones (puedes personalizarlas luego)
         btnPaginaWeb.setOnClickListener { startActivity(Intent(this, PaginaWebActivity::class.java)) }
         btnCursos.setOnClickListener { startActivity(Intent(this, CursosActivity::class.java)) }
         btnHorario.setOnClickListener { startActivity(Intent(this, HorariosActivity::class.java)) }
-        btnCuenta.setOnClickListener { startActivity(Intent(this, CuentaActivity::class.java)) }
-        btnCumpleanos.setOnClickListener { startActivity(Intent(this, CumpleanosActivity::class.java)) }
+        btnDocentes.setOnClickListener { startActivity(Intent(this, DocentesActivity::class.java)) }
+        btnSobreNosotros.setOnClickListener { startActivity(Intent(this, NosotrosActivity::class.java)) }
         btnEnlaces.setOnClickListener { startActivity(Intent(this, EnlacesActivity::class.java)) }
         btnPagos.setOnClickListener { startActivity(Intent(this, PagosActivity::class.java)) }
-        btnIdentificacion.setOnClickListener { startActivity(Intent(this, IdentificacionActivity::class.java)) }
     }
 
-    // Función para animar botón al presionar
+    // Efecto de rebote al presionar
     private fun animarBoton(boton: MaterialButton) {
         boton.setOnTouchListener { v, event ->
-            when(event.action) {
-                MotionEvent.ACTION_DOWN -> {
-                    v.animate().scaleX(0.95f).scaleY(0.95f).setDuration(100).start()
-                }
-                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                    v.animate().scaleX(1f).scaleY(1f).setDuration(100).start()
-                }
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> v.animate().scaleX(0.95f).scaleY(0.95f).setDuration(100).start()
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> v.animate().scaleX(1f).scaleY(1f).setDuration(100).start()
             }
             false
         }
     }
 
-    // Función para efecto shimmer futurista sin opacar el texto
+    // Efecto shimmer futurista sin alterar el color base
     private fun aplicarShimmerFuturista(boton: MaterialButton) {
-        // Capa shimmer: solo el brillo (transparente al resto)
         val shimmer = GradientDrawable(
             GradientDrawable.Orientation.LEFT_RIGHT,
-            intArrayOf(0x00FFFFFF, 0x55FFFFFF, 0x00FFFFFF) // blanco semitransparente
+            intArrayOf(0x00FFFFFF, 0x33FFFFFF, 0x00FFFFFF) // opacidad reducida
         )
         shimmer.cornerRadius = 16f
 
-        // Aplicar como foreground si la versión lo permite
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             boton.foreground = shimmer
-        } else {
-            // Para versiones antiguas, podemos usar background, pero con transparencia máxima
-            boton.background = shimmer
         }
 
-        // Animar el shimmer
         val animator = ValueAnimator.ofFloat(-1f, 2f)
-        animator.duration = 2000
+        animator.duration = 2500
         animator.repeatCount = ValueAnimator.INFINITE
         animator.interpolator = LinearInterpolator()
         animator.addUpdateListener { animation ->
@@ -120,10 +108,7 @@ class MainActivity : AppCompatActivity() {
         animator.start()
     }
 
-
-
-
-
 }
+
 
 
