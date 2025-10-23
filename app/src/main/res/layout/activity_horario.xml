@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@android:color/white"
     tools:context=".HorariosActivity">
 
     <!-- Toolbar -->
@@ -20,28 +23,44 @@
         app:title="Horario de Clases"
         app:titleTextColor="@android:color/white" />
 
-    <!-- Calendario -->
-    <com.applandeo.materialcalendarview.CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+    <!-- Título debajo del Toolbar -->
+    <TextView
+        android:id="@+id/txtTituloHorarios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mira Nuestros Horarios"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
         app:layout_constraintTop_toBottomOf="@id/toolbarHorarios"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/listEventos"/>
+        android:layout_marginTop="16dp" />
 
-    <!-- Lista de eventos -->
-    <ListView
-        android:id="@+id/listEventos"
+    <!-- Contenedor de tarjetas de cursos -->
+    <ScrollView
+        android:id="@+id/scrollHorarios"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:dividerHeight="8dp"
-        app:layout_constraintTop_toBottomOf="@id/calendarView"
+        app:layout_constraintTop_toBottomOf="@id/txtTituloHorarios"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <LinearLayout
+            android:id="@+id/layoutHorarios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingBottom="16dp" />
+
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
 
 
 

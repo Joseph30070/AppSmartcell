@@ -1,29 +1,33 @@
 package com.example.smartcellapp
 
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.ListView
+import android.transition.AutoTransition
+import android.transition.TransitionManager
+import android.view.LayoutInflater
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.applandeo.materialcalendarview.CalendarView
-import com.applandeo.materialcalendarview.EventDay
-import java.text.SimpleDateFormat
-import java.util.*
+
+data class CursoHorario(
+    val nombre: String,
+    val dias: String,
+    val horario: String,
+    val descripcion: String
+)
 
 class HorariosActivity : AppCompatActivity() {
 
-    private lateinit var listView: ListView
-    private lateinit var adapter: ArrayAdapter<String>
-    private lateinit var calendarView: CalendarView
-
-    // Lista de cursos (nombre, fecha, hora) por ahora predefinidos luego base de datos
-    private val eventos = listOf(
-        Triple("Robótica Avanzada", "11/09/2025", "9:00 am - 12:00 pm"),
-        Triple("Electrónica Digital", "14/09/2025", "3:00 pm - 6:00 pm"),
-        Triple("Reparación de PCs", "20/09/2025", "10:00 am - 1:00 pm")
+    private val cursos = listOf(
+        CursoHorario("🤖 Robótica", "Lun, Mié, Vie", "9:00 - 11:00", "¡Construye robots y diviértete programando!"),
+        CursoHorario("📄 Ofimática", "Mar, Jue", "14:00 - 16:00", "Aprende Excel y Word como un pro 💻"),
+        CursoHorario("⚡ Electrónica", "Lun-Vie", "11:00 - 13:00", "Circuitos, LEDs y chispa ⚡"),
+        CursoHorario("📱 Reparación de Celulares", "Mar, Jue", "10:00 - 12:00", "Arregla móviles sin morir en el intento 📱"),
+        CursoHorario("💻 Reparación de PC y Laptop", "Lun, Mié, Vie", "15:00 - 17:00", "Domina tu PC y salva computadoras 💻")
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,60 +35,53 @@ class HorariosActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_horario)
 
+        // Toolbar azul con título y flecha
+        val toolbar = findViewById<Toolbar>(R.id.toolbarHorarios)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Horario de Clases"
+        toolbar.setNavigationOnClickListener { finish() }
+
+        // Ajuste de barras del sistema
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // Toolbar con retroceso
-        val toolbar = findViewById<Toolbar>(R.id.toolbarHorarios)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        // Contenedor donde se añadirán las tarjetas
+        val contenedor = findViewById<LinearLayout>(R.id.layoutHorarios)
+        val inflater = LayoutInflater.from(this)
 
-        // Referencia al calendario y lista
-        calendarView = findViewById(R.id.calendarView)
-        listView = findViewById(R.id.listEventos)
+        // Crear tarjetas por curso con acordeón
+        for (curso in cursos) {
+            val card = inflater.inflate(R.layout.item_horario_card, contenedor, false)
+            val cardView = card.findViewById<CardView>(R.id.cardHorario)
+            val nombre = card.findViewById<TextView>(R.id.txtTituloHorario)
+            val descripcion = card.findViewById<TextView>(R.id.txtDescripcionHorario)
+            val horario = card.findViewById<TextView>(R.id.txtHoraHorario)
 
-        // Adaptador inicial con todos los cursos
-        adapter = ArrayAdapter(
-            this,
-            android.R.layout.simple_list_item_1,
-            eventos.map { "${it.first}\n📅 ${it.second}  ⏰ ${it.third}" }
-        )
-        listView.adapter = adapter
+            nombre.text = curso.nombre
+            horario.text = "${curso.dias} | ${curso.horario}"
+            descripcion.text = curso.descripcion
 
-        // Mostrar puntitos en el calendario
-        val eventosCalendario = mutableListOf<EventDay>()
-        val clase1 = Calendar.getInstance().apply { set(2025, 8, 11) } // Septiembre = 8
-        val clase2 = Calendar.getInstance().apply { set(2025, 8, 14) }
-        val clase3 = Calendar.getInstance().apply { set(2025, 8, 20) }
+            // Inicialmente la descripción oculta
+            descripcion.visibility = TextView.GONE
 
-        eventosCalendario.add(EventDay(clase1, R.drawable.ic_circle_blue))
-        eventosCalendario.add(EventDay(clase2, R.drawable.ic_circle_blue))
-        eventosCalendario.add(EventDay(clase3, R.drawable.ic_circle_blue))
-        calendarView.setEvents(eventosCalendario)
-
-        // Acción al hacer clic en una fecha
-        calendarView.setOnDayClickListener(object :
-            com.applandeo.materialcalendarview.listeners.OnDayClickListener {
-            override fun onDayClick(eventDay: EventDay) {
-                val clickedDay = eventDay.calendar.time
-                val formato = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-                val fechaSeleccionada = formato.format(clickedDay)
-
-                val cursosDelDia = eventos.filter { it.second == fechaSeleccionada }
-
-                adapter.clear()
-                if (cursosDelDia.isNotEmpty()) {
-                    adapter.addAll(cursosDelDia.map {
-                        "${it.first}\n📅 ${it.second}  ⏰ ${it.third}"
-                    })
-                } else {
-                    adapter.add("❌ No hay clases programadas para $fechaSeleccionada")
-                }
+            // Toggle acordeón
+            cardView.setOnClickListener {
+                val transition = AutoTransition().apply { duration = 300 }
+                TransitionManager.beginDelayedTransition(cardView, transition)
+                descripcion.visibility = if (descripcion.visibility == TextView.GONE) TextView.VISIBLE else TextView.GONE
             }
-        })
+
+            // Añadir separación entre tarjetas
+            val params = cardView.layoutParams as LinearLayout.LayoutParams
+            params.setMargins(0, 12, 0, 12)
+            cardView.layoutParams = params
+
+            contenedor.addView(card)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -92,6 +89,9 @@ class HorariosActivity : AppCompatActivity() {
         return true
     }
 }
+
+
+
 
 
 

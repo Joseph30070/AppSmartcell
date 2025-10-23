@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".CursosActivity">
 
-    <!-- Barra superior azul -->
+    <!-- Toolbar superior azul -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarCursos"
         android:layout_width="0dp"
@@ -20,19 +20,31 @@
         app:title="Mis Cursos 2025"
         app:titleTextColor="@android:color/white" />
 
-    <!-- Lista de cursos -->
-    <ListView
-        android:id="@+id/listCursos"
+    <!-- Contenido desplazable -->
+    <ScrollView
+        android:id="@+id/scrollViewCursos"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:dividerHeight="8dp"
-        android:padding="8dp"
-        android:background="#F9F9F9"
         app:layout_constraintTop_toBottomOf="@id/toolbarCursos"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:id="@+id/layoutCursos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:dividerPadding="8dp">
+
+            <!-- Aquí se agregarán dinámicamente las tarjetas desde Kotlin -->
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 

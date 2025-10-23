@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient"
+    android:background="@android:color/white"
     tools:context=".PagosActivity">
 
     <!-- Toolbar -->
@@ -54,10 +54,7 @@
             android:gravity="end" />
     </LinearLayout>
 
-
-
-
-    <!-- Lista de cuotas -->
+    <!-- Lista de cursos -->
     <LinearLayout
         android:id="@+id/layoutCursos"
         android:layout_width="0dp"
