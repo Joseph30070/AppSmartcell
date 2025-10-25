@@ -13,7 +13,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.button.MaterialButton
 import android.content.Intent
-import androidx.core.content.ContextCompat
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,11 +37,11 @@ class MainActivity : AppCompatActivity() {
         val btnDocentes = findViewById<MaterialButton>(R.id.btnDocentes)
         val btnSobreNosotros = findViewById<MaterialButton>(R.id.btnSobreNosotros)
         val btnEnlaces = findViewById<MaterialButton>(R.id.btnEnlaces)
-        val btnPagos = findViewById<MaterialButton>(R.id.btnPagos)
+
 
         val botones = listOf(
             btnPaginaWeb, btnCursos, btnHorario,
-            btnDocentes, btnSobreNosotros, btnEnlaces, btnPagos
+            btnDocentes, btnSobreNosotros, btnEnlaces
         )
 
         // Animación de entrada (fade + slide) en cascada
@@ -63,14 +62,14 @@ class MainActivity : AppCompatActivity() {
         // Aplicar efecto shimmer futurista
         botones.forEach { aplicarShimmerFuturista(it) }
 
-        // Acciones de los botones (puedes personalizarlas luego)
+        // Acciones de los botones
         btnPaginaWeb.setOnClickListener { startActivity(Intent(this, PaginaWebActivity::class.java)) }
         btnCursos.setOnClickListener { startActivity(Intent(this, CursosActivity::class.java)) }
         btnHorario.setOnClickListener { startActivity(Intent(this, HorariosActivity::class.java)) }
         btnDocentes.setOnClickListener { startActivity(Intent(this, DocentesActivity::class.java)) }
         btnSobreNosotros.setOnClickListener { startActivity(Intent(this, NosotrosActivity::class.java)) }
         btnEnlaces.setOnClickListener { startActivity(Intent(this, EnlacesActivity::class.java)) }
-        btnPagos.setOnClickListener { startActivity(Intent(this, PagosActivity::class.java)) }
+
     }
 
     // Efecto de rebote al presionar
@@ -88,7 +87,7 @@ class MainActivity : AppCompatActivity() {
     private fun aplicarShimmerFuturista(boton: MaterialButton) {
         val shimmer = GradientDrawable(
             GradientDrawable.Orientation.LEFT_RIGHT,
-            intArrayOf(0x00FFFFFF, 0x33FFFFFF, 0x00FFFFFF) // opacidad reducida
+            intArrayOf(0x00FFFFFF, 0x33FFFFFF, 0x00FFFFFF)
         )
         shimmer.cornerRadius = 16f
 
@@ -107,8 +106,8 @@ class MainActivity : AppCompatActivity() {
         }
         animator.start()
     }
-
 }
+
 
 
 

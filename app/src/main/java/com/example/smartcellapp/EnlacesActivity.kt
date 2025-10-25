@@ -45,7 +45,7 @@ class EnlacesActivity : AppCompatActivity() {
 
         // Botón Facebook
         findViewById<Button>(R.id.btnFacebook).setOnClickListener {
-            abrirEnNavegador("https://www.facebook.com/profile.php?id=61574682905135&locale=es_LA")
+            abrirEnNavegador("https://www.facebook.com/share/1R7x6Hf6gE/")
         }
 
         // Botón Instagram

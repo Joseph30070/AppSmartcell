@@ -162,23 +162,7 @@
                 app:iconSize="48dp"
                 app:iconPadding="12dp" />
 
-            <!-- Pagos -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnPagos"
-                android:layout_width="0dp"
-                android:layout_height="140dp"
-                android:layout_columnWeight="1"
-                android:layout_margin="12dp"
-                android:text="Pagos"
-                android:textColor="@color/white"
-                android:backgroundTint="@color/colorPrimary"
-                android:elevation="4dp"
-                app:cornerRadius="16dp"
-                app:icon="@drawable/ic_payments"
-                app:iconTint="@color/white"
-                app:iconGravity="top"
-                app:iconSize="48dp"
-                app:iconPadding="12dp" />
+
 
         </GridLayout>
     </ScrollView>

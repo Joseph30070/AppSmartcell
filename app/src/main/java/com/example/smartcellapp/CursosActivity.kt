@@ -19,36 +19,47 @@ class CursosActivity : AppCompatActivity() {
 
     private val cursos = listOf(
         "🤖 Robótica" to """
-            Aprende a programar robots, usar sensores, motores y construir proyectos de automatización.
-            - Duración: 4 meses
-            - Nivel: Intermedio
-            - Modalidad: Presencial / Virtual
-        """.trimIndent(),
+        Aprende a programar robots, usar sensores, motores y construir proyectos de automatización.
+        - Duración: 4 meses
+        - Nivel: Intermedio
+        - Modalidad: Presencial / Virtual
+        - Precio: S/180 por mes
+        - Pagos: 4 mensualidades
+    """.trimIndent(),
         "📄 Ofimática" to """
-            Domina herramientas como Word, Excel, PowerPoint y gestión de documentos digitales.
-            - Duración: 3 meses
-            - Nivel: Básico
-            - Modalidad: Presencial / Virtual
-        """.trimIndent(),
+        Domina herramientas como Word, Excel, PowerPoint y gestión de documentos digitales.
+        - Duración: 3 meses
+        - Nivel: Básico
+        - Modalidad: Presencial / Virtual
+        - Precio: S/150 por mes
+        - Pagos: 3 mensualidades
+    """.trimIndent(),
         "⚡ Electrónica" to """
-            Aprende sobre circuitos, componentes, multímetros y fundamentos de electrónica práctica.
-            - Duración: 4 meses
-            - Nivel: Básico - Intermedio
-            - Modalidad: Presencial
-        """.trimIndent(),
+        Aprende sobre circuitos, componentes, multímetros y fundamentos de electrónica práctica.
+        - Duración: 4 meses
+        - Nivel: Básico - Intermedio
+        - Modalidad: Presencial
+        - Precio: S/170 por mes
+        - Pagos: 4 mensualidades
+    """.trimIndent(),
         "📱 Reparación de Celulares" to """
-            Diagnóstico, mantenimiento y reparación de equipos móviles de distintas gamas.
-            - Duración: 4 meses
-            - Nivel: Intermedio
-            - Modalidad: Presencial
-        """.trimIndent(),
+        Diagnóstico, mantenimiento y reparación de equipos móviles de distintas gamas.
+        - Duración: 4 meses
+        - Nivel: Intermedio
+        - Modalidad: Presencial
+        - Precio: S/200 por mes
+        - Pagos: 4 mensualidades
+    """.trimIndent(),
         "💻 Reparación de PC y Laptop" to """
-            Mantenimiento, armado, instalación de software y solución de fallas en equipos de escritorio y portátiles.
-            - Duración: 4 meses
-            - Nivel: Básico - Intermedio
-            - Modalidad: Presencial / Virtual
-        """.trimIndent()
+        Mantenimiento, armado, instalación de software y solución de fallas en equipos de escritorio y portátiles.
+        - Duración: 4 meses
+        - Nivel: Básico - Intermedio
+        - Modalidad: Presencial / Virtual
+        - Precio: S/190 por mes
+        - Pagos: 4 mensualidades
+    """.trimIndent()
     )
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
