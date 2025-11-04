@@ -5,7 +5,6 @@ import android.transition.AutoTransition
 import android.transition.TransitionManager
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -14,6 +13,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class CursosActivity : AppCompatActivity() {
 
@@ -60,7 +60,6 @@ class CursosActivity : AppCompatActivity() {
     """.trimIndent()
     )
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -70,8 +69,12 @@ class CursosActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbarCursos)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Mis Cursos 2025"
+        supportActionBar?.title = "CURSOS"
         toolbar.setNavigationOnClickListener { finish() }
+
+        // Botón redondo para regresar
+        val btnAtras = findViewById<FloatingActionButton>(R.id.btnAtras)
+        btnAtras.setOnClickListener { finish() }
 
         // Ajuste de barras del sistema
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -89,20 +92,21 @@ class CursosActivity : AppCompatActivity() {
             val cardView = card.findViewById<CardView>(R.id.cardCurso)
             val titulo = card.findViewById<TextView>(R.id.txtTituloCurso)
             val detalles = card.findViewById<TextView>(R.id.txtDetallesCurso)
-            val boton = card.findViewById<Button>(R.id.btnVerDetalles)
+            val masInfo = card.findViewById<TextView>(R.id.txtMasInformacion)
 
             titulo.text = nombre
             detalles.text = descripcion
 
-            boton.setOnClickListener {
+            // Evento al tocar la tarjeta
+            cardView.setOnClickListener {
                 val transition = AutoTransition().apply { duration = 300 }
                 TransitionManager.beginDelayedTransition(cardView, transition)
                 if (detalles.visibility == View.GONE) {
                     detalles.visibility = View.VISIBLE
-                    boton.text = "Ocultar Información"
+                    masInfo.text = "Menos información ▲"
                 } else {
                     detalles.visibility = View.GONE
-                    boton.text = "Ver Información"
+                    masInfo.text = "Más información ▼"
                 }
             }
 
@@ -115,5 +119,6 @@ class CursosActivity : AppCompatActivity() {
         return true
     }
 }
+
 
 

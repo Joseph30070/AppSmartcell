@@ -6,6 +6,12 @@
     <color name="colorPrimary">#1976D2</color> <!-- Azul -->
     <color name="colorOnPrimary">#FFFFFF</color> <!-- Blanco -->
     <color name="colorBackground">#F5F5F5</color> <!-- Gris claro -->
+    <color name="gray">#555555</color>
+    <color name="deep_orange">#F4511E</color>
+    <color name="blue_gray">#546E7A</color>
+    <color name="light_blue">#4FC3F7</color>
+    <color name="sky_blue">#81D4FA</color>
+
 
 
 </resources>

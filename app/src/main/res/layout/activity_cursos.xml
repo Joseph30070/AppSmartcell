@@ -7,25 +7,50 @@
     android:layout_height="match_parent"
     tools:context=".CursosActivity">
 
-    <!-- Toolbar superior azul -->
+    <!-- Toolbar superior -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarCursos"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:background="@color/teal_700"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title=""
+        app:titleTextColor="@android:color/white"
+        app:titleMarginStart="20dp"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:title="Mis Cursos 2025"
-        app:titleTextColor="@android:color/white" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Botón redondo con flecha para regresar -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAtras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_back"
+        android:contentDescription="Regresar"
+        app:layout_constraintTop_toTopOf="@id/toolbarCursos"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="12dp"
+        app:backgroundTint="@color/blue_gray"
+        app:tint="@android:color/white" />
+
+    <!-- Imagen referencial debajo del toolbar -->
+    <ImageView
+        android:id="@+id/imgBannerCursos"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/banner_cursos"
+        app:layout_constraintTop_toBottomOf="@id/toolbarCursos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Contenido desplazable -->
     <ScrollView
         android:id="@+id/scrollViewCursos"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/toolbarCursos"
+        app:layout_constraintTop_toBottomOf="@id/imgBannerCursos"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,14 +62,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center_horizontal"
-            android:dividerPadding="8dp">
+            android:dividerPadding="8dp" />
 
-            <!-- Aquí se agregarán dinámicamente las tarjetas desde Kotlin -->
-
-        </LinearLayout>
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 
