@@ -4,28 +4,35 @@
 
     <!-- Textos para NosotrosActivity -->
     <string name="texto_principal_nosotros">
-        En SmartCell formamos profesionales con visión tecnológica, curiosos, innovadores y con pasión por la electrónica.
-        Buscamos impulsar el talento de cada estudiante brindando conocimientos sólidos en reparación de celulares, computadoras, robótica y nuevas tecnologías.
-        Creemos que el aprendizaje práctico transforma el futuro, y por eso cada clase es una experiencia real, enfocada en la solución de problemas del mundo actual.
+        En SmartCell formamos profesionales con visión tecnológica y curiosidad innovadora.
+        Impulsamos el talento de cada estudiante con conocimientos sólidos en reparación
+        de celulares, computadoras, robótica y nuevas tecnologías. Pensamos que el
+        aprendizaje práctico transforma el futuro, por eso cada clase es una experiencia
+        real orientada a la solución de problemas del mundo actual.
     </string>
 
     <string name="texto_vision_nosotros">
-        Ser líderes en educación tecnológica práctica, inspirando a jóvenes a convertirse en profesionales capaces de reparar, crear y transformar el mundo digital.
-        En SmartCell buscamos que cada estudiante descubra su potencial innovador y que nuestros egresados sean referentes en servicio técnico, robótica y tecnología aplicada.
+        Nuestra visión es liderar la educación tecnológica práctica, inspirando a jóvenes
+        a convertirse en profesionales capaces de reparar, crear y transformar el entorno
+        digital con pensamiento crítico y vocación técnica.
     </string>
 
     <string name="texto_que_ofrecemos">
-📱 Cursos especializados en reparación de celulares, laptops y PCs.\n
-🤖 Talleres de robótica e innovación tecnológica.\n
-💡 Capacitaciones en mantenimiento preventivo y diagnóstico avanzado.\n
-👨‍🏫 Docentes con experiencia real en el campo técnico.\n
-🎓 Certificaciones reconocidas y respaldo académico.\n
-🔧 Clases 100% prácticas con equipos reales.
+📌 Cursos especializados:\n
+\u2022 Reparación de celulares, laptops y PCs\n
+\u2022 Robótica e innovación tecnológica\n
+\u2022 Electrónica aplicada\n
+\u2022 Diagnóstico y mantenimiento avanzado\n\n
+👨‍🏫 Docentes con experiencia real\n
+🎓 Certificaciones con respaldo académico\n
+🔧 Clases 100% prácticas con equipos reales
 </string>
 
 
     <string name="texto_final_ofrecemos">
-        En SmartCell no solo enseñamos a reparar, enseñamos a entender cómo funciona la tecnología que mueve el mundo.
-        Nuestro objetivo es que cada estudiante se convierta en un técnico integral, preparado para los desafíos del futuro.
+        En SmartCell no solo enseñamos a reparar, enseñamos a comprender cómo funciona la
+        tecnología que mueve el mundo. Formamos técnicos integrales listos para los
+        desafíos del futuro.
     </string>
 </resources>
+

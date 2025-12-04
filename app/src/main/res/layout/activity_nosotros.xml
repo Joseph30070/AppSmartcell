@@ -6,33 +6,32 @@
     android:id="@+id/layoutPrincipal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@drawable/bg_nosotros"
     tools:context=".NosotrosActivity">
 
-    <!-- Toolbar superior -->
+    <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarNosotros"
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:background="#142C4D"
         app:title="Sobre Nosotros"
         app:titleTextColor="@android:color/white"
-        app:navigationIconTint="@android:color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Contenido desplazable -->
+    <!-- Scroll -->
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:padding="24dp"
+        android:fillViewport="true"
         app:layout_constraintTop_toBottomOf="@id/toolbarNosotros"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:fillViewport="true">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,20 +45,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/texto_principal_nosotros"
-                android:textColor="#333333"
+                android:textColor="#E6EEF6"
                 android:textSize="18sp"
                 android:lineSpacingExtra="6dp"
                 android:gravity="center"
                 android:layout_marginBottom="20dp" />
 
-            <!-- Sección: VISIÓN -->
+            <!-- VISIÓN -->
             <LinearLayout
                 android:id="@+id/layoutVision"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginTop="16dp"
                 android:visibility="gone"
-                android:layout_marginTop="16dp">
+                android:background="#1A2F4D"
+                android:padding="18dp"
+                android:elevation="4dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -67,7 +69,7 @@
                     android:text="🌟 Nuestra Visión"
                     android:textStyle="bold"
                     android:textSize="20sp"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#FFFFFF"
                     android:layout_marginBottom="8dp"
                     android:gravity="center" />
 
@@ -75,20 +77,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/texto_vision_nosotros"
-                    android:textColor="#444444"
+                    android:textColor="#DCE8F5"
                     android:textSize="16sp"
-                    android:lineSpacingExtra="5dp"
+                    android:lineSpacingExtra="6dp"
                     android:gravity="center" />
             </LinearLayout>
 
-            <!-- Sección: QUÉ OFRECEMOS -->
+            <!-- QUÉ OFRECEMOS -->
             <LinearLayout
                 android:id="@+id/layoutOfrecemos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:visibility="gone"
-                android:layout_marginTop="24dp">
+                android:layout_marginTop="24dp"
+                android:background="#1A2F4D"
+                android:padding="18dp"
+                android:elevation="4dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -96,7 +101,7 @@
                     android:text="🚀 Qué Ofrecemos"
                     android:textStyle="bold"
                     android:textSize="20sp"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#FFFFFF"
                     android:layout_marginBottom="8dp"
                     android:gravity="center" />
 
@@ -104,29 +109,31 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/texto_que_ofrecemos"
-                    android:textColor="#444444"
+                    android:textColor="#DCE8F5"
                     android:textSize="16sp"
-                    android:gravity="center"
+                    android:gravity="start"
+                    android:textAlignment="viewStart"
                     android:lineSpacingExtra="6dp"
                     android:layout_marginBottom="12dp" />
+
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/texto_final_ofrecemos"
-                    android:textColor="#444444"
+                    android:textColor="#DCE8F5"
                     android:textSize="16sp"
                     android:gravity="center"
                     android:lineSpacingExtra="6dp" />
             </LinearLayout>
 
-            <!-- 🔹 Botón "Ver más" al final (ya baja correctamente) -->
+            <!-- Botón -->
             <Button
                 android:id="@+id/btnVerMas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ver más →"
-                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTint="#29476D"
                 android:textColor="@android:color/white"
                 android:paddingHorizontal="28dp"
                 android:paddingVertical="10dp"
@@ -139,6 +146,8 @@
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 
