@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@android:color/white"
+    android:background="@drawable/fondo_horarios"
     tools:context=".HorariosActivity">
 
     <!-- Toolbar -->
@@ -23,7 +23,6 @@
         app:title="Horario de Clases"
         app:titleTextColor="@android:color/white" />
 
-    <!-- Título debajo del Toolbar -->
     <TextView
         android:id="@+id/txtTituloHorarios"
         android:layout_width="wrap_content"
@@ -31,13 +30,12 @@
         android:text="Mira Nuestros Horarios"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="#333333"
+        android:textColor="#FFFFFF"
         app:layout_constraintTop_toBottomOf="@id/toolbarHorarios"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
 
-    <!-- Contenedor de tarjetas de cursos -->
     <ScrollView
         android:id="@+id/scrollHorarios"
         android:layout_width="0dp"
@@ -53,10 +51,52 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center_horizontal"
-            android:paddingBottom="16dp" />
+            android:paddingBottom="16dp">
+
+            <!-- ⭐️ Bloque Horario de Atención con texto blanco ⭐️ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_marginTop="24dp"
+                android:background="@android:color/transparent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🕒 Horario de Atención"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lunes a Sábado: 9:00 AM – 9:00 PM"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Domingo: 9:00 AM – 6:00 PM"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:gravity="center" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 
