@@ -44,7 +44,7 @@
             android:gravity="start"
             android:layout_marginBottom="8dp" />
 
-        <!-- Detalles del curso (se muestra/oculta con animación) -->
+        <!-- Detalles del curso -->
         <TextView
             android:id="@+id/txtDetallesCurso"
             android:layout_width="match_parent"
@@ -57,8 +57,23 @@
             android:lineSpacingExtra="5dp"
             android:paddingEnd="4dp" />
 
+        <!-- Ícono de Telegram (AUMENTADO) -->
+        <ImageView
+            android:id="@+id/ivTelegram"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_telegram"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:contentDescription="Abrir Telegram"
+            android:clickable="true"
+            android:focusable="true" />
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>
+
+
+
 
 
 

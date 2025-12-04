@@ -1,6 +1,7 @@
 package com.example.smartcellapp
 
 import android.os.Bundle
+import android.view.ViewGroup
 import android.transition.AutoTransition
 import android.transition.TransitionManager
 import android.view.View
@@ -26,28 +27,52 @@ class DocentesActivity : AppCompatActivity() {
         supportActionBar?.title = "Nuestros Docentes"
         binding.toolbarDocentes.setNavigationOnClickListener { finish() }
 
-        // Ajuste para sistema de barras (status/nav)
+        // Ajuste para barras del sistema
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // Al tocar el botón se despliega/oculta la información del profesor
-        binding.btnVerInfoProfesor.setOnClickListener {
-            toggleDetalles(binding.layoutInfoProfesor, binding.btnVerInfoProfesor)
+        // ---- PROFESOR 1 ----
+        binding.btnVerInfoProfesor1.setOnClickListener {
+            toggleDetalles(
+                binding.layoutInfoProfesor1,
+                binding.btnVerInfoProfesor1,
+                binding.cardProfesor1
+            )
+        }
+
+        // ---- PROFESOR 2 ----
+        binding.btnVerInfoProfesor2.setOnClickListener {
+            toggleDetalles(
+                binding.layoutInfoProfesor2,
+                binding.btnVerInfoProfesor2,
+                binding.cardProfesor2
+            )
+        }
+
+        // ---- PROFESOR 3 ----
+        binding.btnVerInfoProfesor3.setOnClickListener {
+            toggleDetalles(
+                binding.layoutInfoProfesor3,
+                binding.btnVerInfoProfesor3,
+                binding.cardProfesor3
+            )
         }
     }
 
-    private fun toggleDetalles(detalles: View, boton: View) {
+    /**
+     * Función para mostrar/ocultar con animación sin romper nada
+     */
+    private fun toggleDetalles(detalles: View, boton: View, card: View) {
         val transition = AutoTransition().apply { duration = 300 }
-        TransitionManager.beginDelayedTransition(binding.cardProfesor, transition)
+        TransitionManager.beginDelayedTransition(card as ViewGroup, transition)
 
         if (detalles.visibility == View.GONE) {
             detalles.visibility = View.VISIBLE
             if (boton is android.widget.Button) boton.text = "Ocultar Información"
 
-            // Scroll automático para mostrar la info completa
             detalles.post {
                 binding.scrollViewDocentes.smoothScrollTo(0, detalles.bottom)
             }
@@ -56,13 +81,13 @@ class DocentesActivity : AppCompatActivity() {
             detalles.visibility = View.GONE
             if (boton is android.widget.Button) boton.text = "Ver Información"
 
-            // Opcional: regresar al inicio de la tarjeta
             detalles.post {
-                binding.scrollViewDocentes.smoothScrollTo(0, binding.cardProfesor.top)
+                binding.scrollViewDocentes.smoothScrollTo(0, card.top)
             }
         }
     }
 }
+
 
 
 

@@ -39,9 +39,9 @@
             android:orientation="vertical"
             android:gravity="center_horizontal">
 
-            <!-- Tarjeta del profesor -->
+            <!-- ================= PROFESOR 1 ================= -->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardProfesor"
+                android:id="@+id/cardProfesor1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
@@ -57,44 +57,37 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <!-- Imagen del profesor -->
                     <ImageView
-                        android:id="@+id/imgProfesor"
+                        android:id="@+id/imgProfesor1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/profesor"
-                        android:contentDescription="Foto del profesor" />
+                        android:src="@drawable/profesor"/>
 
-                    <!-- Nombre del profesor -->
                     <TextView
-                        android:id="@+id/txtNombreProfesor"
+                        android:id="@+id/txtNombreProfesor1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="El profesor Poll Dikson Pariona Huamani"
+                        android:text="Poll Dikson Pariona Huamani"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:textColor="#333333"
                         android:gravity="center"
                         android:layout_marginTop="12dp" />
 
-                    <!-- Botón para mostrar info -->
                     <Button
-                        android:id="@+id/btnVerInfoProfesor"
+                        android:id="@+id/btnVerInfoProfesor1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Ver Información"
                         android:backgroundTint="@color/colorPrimary"
                         android:textColor="@android:color/white"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="8dp"
-                        android:paddingHorizontal="24dp"
-                        android:paddingVertical="10dp" />
+                        android:layout_marginTop="8dp"/>
 
-                    <!-- Información expandible -->
                     <LinearLayout
-                        android:id="@+id/layoutInfoProfesor"
+                        android:id="@+id/layoutInfoProfesor1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
@@ -104,17 +97,151 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Profesor a cargo de los cursos de reparación de celulares, computadoras, robótica y tecnología aplicada. Con amplia experiencia práctica en la enseñanza y resolución de problemas tecnológicos reales. También asesora en proyectos de innovación tecnológica y laboratorios prácticos de robótica."
+                            android:text="Profesor especializado en reparación de celulares, computadoras, robótica y proyectos tecnológicos."
                             android:textColor="#444444"
                             android:textSize="16sp"
-                            android:lineSpacingExtra="5dp"
-                            android:gravity="start"/>
+                            android:lineSpacingExtra="5dp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ================= PROFESOR 2 ================= -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardProfesor2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="2dp"
+                android:clipToPadding="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/imgProfesor2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/profesor2"/>
+
+                    <TextView
+                        android:id="@+id/txtNombreProfesor2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Oscar Hernán Méndez Chávez"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#333333"
+                        android:gravity="center"
+                        android:layout_marginTop="12dp" />
+
+                    <Button
+                        android:id="@+id/btnVerInfoProfesor2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ver Información"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:textColor="@android:color/white"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="8dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/layoutInfoProfesor2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        android:layout_marginTop="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Especialista en reparación avanzada de laptops, tablets y microelectrónica aplicada."
+                            android:textColor="#444444"
+                            android:textSize="16sp"
+                            android:lineSpacingExtra="5dp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ================= PROFESOR 3 ================= -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardProfesor3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="2dp"
+                android:clipToPadding="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/imgProfesor3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/profesor3"/>
+
+                    <TextView
+                        android:id="@+id/txtNombreProfesor3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Jorge Iván Meléndez Rojas"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#333333"
+                        android:gravity="center"
+                        android:layout_marginTop="12dp" />
+
+                    <Button
+                        android:id="@+id/btnVerInfoProfesor3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ver Información"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:textColor="@android:color/white"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="8dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/layoutInfoProfesor3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        android:layout_marginTop="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Docente especialista en robótica educativa, programación Arduino y automatización."
+                            android:textColor="#444444"
+                            android:textSize="16sp"
+                            android:lineSpacingExtra="5dp"/>
                     </LinearLayout>
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
+
 
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

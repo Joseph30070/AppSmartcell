@@ -1,5 +1,7 @@
 package com.example.smartcellapp
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.transition.AutoTransition
 import android.transition.TransitionManager
@@ -7,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -17,47 +20,73 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class CursosActivity : AppCompatActivity() {
 
+    private data class Curso(
+        val nombre: String,
+        val descripcion: String,
+        val telegram: String
+    )
+
     private val cursos = listOf(
-        "🤖 Robótica" to """
-        Aprende a programar robots, usar sensores, motores y construir proyectos de automatización.
-        - Duración: 4 meses
-        - Nivel: Intermedio
-        - Modalidad: Presencial / Virtual
-        - Precio: S/180 por mes
-        - Pagos: 4 mensualidades
-    """.trimIndent(),
-        "📄 Ofimática" to """
-        Domina herramientas como Word, Excel, PowerPoint y gestión de documentos digitales.
-        - Duración: 3 meses
-        - Nivel: Básico
-        - Modalidad: Presencial / Virtual
-        - Precio: S/150 por mes
-        - Pagos: 3 mensualidades
-    """.trimIndent(),
-        "⚡ Electrónica" to """
-        Aprende sobre circuitos, componentes, multímetros y fundamentos de electrónica práctica.
-        - Duración: 4 meses
-        - Nivel: Básico - Intermedio
-        - Modalidad: Presencial
-        - Precio: S/170 por mes
-        - Pagos: 4 mensualidades
-    """.trimIndent(),
-        "📱 Reparación de Celulares" to """
-        Diagnóstico, mantenimiento y reparación de equipos móviles de distintas gamas.
-        - Duración: 4 meses
-        - Nivel: Intermedio
-        - Modalidad: Presencial
-        - Precio: S/200 por mes
-        - Pagos: 4 mensualidades
-    """.trimIndent(),
-        "💻 Reparación de PC y Laptop" to """
-        Mantenimiento, armado, instalación de software y solución de fallas en equipos de escritorio y portátiles.
-        - Duración: 4 meses
-        - Nivel: Básico - Intermedio
-        - Modalidad: Presencial / Virtual
-        - Precio: S/190 por mes
-        - Pagos: 4 mensualidades
-    """.trimIndent()
+        Curso(
+            "🤖 Robótica",
+            """
+            Aprende a programar robots, usar sensores, motores y construir proyectos de automatización.
+            - Duración: 4 meses
+            - Nivel: Intermedio
+            - Modalidad: Presencial / Virtual
+            - Precio: S/180 por mes
+            - Pagos: 4 mensualidades
+            """.trimIndent(),
+            "https://t.me/roboticaBeatCell"
+        ),
+        Curso(
+            "📄 Ofimática",
+            """
+            Domina herramientas como Word, Excel, PowerPoint y gestión de documentos digitales.
+            - Duración: 3 meses
+            - Nivel: Básico
+            - Modalidad: Presencial / Virtual
+            - Precio: S/150 por mes
+            - Pagos: 3 mensualidades
+            """.trimIndent(),
+            "https://t.me/ofimaticaBeatCell"
+        ),
+        Curso(
+            "⚡ Electrónica",
+            """
+            Aprende sobre circuitos, componentes, multímetros y fundamentos de electrónica práctica.
+            - Duración: 4 meses
+            - Nivel: Básico - Intermedio
+            - Modalidad: Presencial
+            - Precio: S/170 por mes
+            - Pagos: 4 mensualidades
+            """.trimIndent(),
+            "https://t.me/electronicaBeatCell"
+        ),
+        Curso(
+            "📱 Reparación de Celulares",
+            """
+            Diagnóstico, mantenimiento y reparación de equipos móviles de distintas gamas.
+            - Duración: 4 meses
+            - Nivel: Intermedio
+            - Modalidad: Presencial
+            - Precio: S/200 por mes
+            - Pagos: 4 mensualidades
+            """.trimIndent(),
+            "https://t.me/celularesBeatCell"
+        ),
+        Curso(
+            "💻 Reparación de PC y Laptop",
+            """
+            Mantenimiento, armado, instalación de software y solución de fallas en equipos de escritorio y portátiles.
+            - Duración: 4 meses
+            - Nivel: Básico - Intermedio
+            - Modalidad: Presencial / Virtual
+            - Precio: S/190 por mes
+            - Pagos: 4 mensualidades
+            """.trimIndent(),
+            "https://t.me/pcsBeatCell"
+        )
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,18 +94,15 @@ class CursosActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_cursos)
 
-        // Toolbar
         val toolbar = findViewById<Toolbar>(R.id.toolbarCursos)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "CURSOS"
         toolbar.setNavigationOnClickListener { finish() }
 
-        // Botón redondo para regresar
         val btnAtras = findViewById<FloatingActionButton>(R.id.btnAtras)
         btnAtras.setOnClickListener { finish() }
 
-        // Ajuste de barras del sistema
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -86,18 +112,24 @@ class CursosActivity : AppCompatActivity() {
         val contenedor = findViewById<LinearLayout>(R.id.layoutCursos)
         val inflater = LayoutInflater.from(this)
 
-        // Crear dinámicamente una tarjeta por curso
-        for ((nombre, descripcion) in cursos) {
+        for (curso in cursos) {
+
             val card = inflater.inflate(R.layout.item_curso_card, contenedor, false)
+
             val cardView = card.findViewById<CardView>(R.id.cardCurso)
             val titulo = card.findViewById<TextView>(R.id.txtTituloCurso)
             val detalles = card.findViewById<TextView>(R.id.txtDetallesCurso)
             val masInfo = card.findViewById<TextView>(R.id.txtMasInformacion)
+            val imgTelegram = card.findViewById<ImageView>(R.id.ivTelegram)
 
-            titulo.text = nombre
-            detalles.text = descripcion
+            titulo.text = curso.nombre
+            detalles.text = curso.descripcion
 
-            // Evento al tocar la tarjeta
+            imgTelegram.setOnClickListener {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(curso.telegram))
+                startActivity(intent)
+            }
+
             cardView.setOnClickListener {
                 val transition = AutoTransition().apply { duration = 300 }
                 TransitionManager.beginDelayedTransition(cardView, transition)
@@ -119,6 +151,7 @@ class CursosActivity : AppCompatActivity() {
         return true
     }
 }
+
 
 
 
