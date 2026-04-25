@@ -1,3 +1,5 @@
+
+
 Aplicación Móvil — Academia SmartCell
 Descripción
 
@@ -13,6 +15,7 @@ Tecnologías Utilizadas
 -Diseño de interfaces: XML
 -Control de versiones: Git y GitHub
 -Compatibilidad: Versiones bajas de Android
+
 -Estructura de Ramas
 
 El repositorio contiene tres ramas principales:
@@ -62,3 +65,18 @@ Ejecutar la opción:
 Estado del Proyecto
 
 El proyecto se encuentra en desarrollo y representa un proceso de aprendizaje en el desarrollo de aplicaciones móviles con Kotlin y Android Studio.
+
+
+
+-----------CAPTURAS DEL PROYECTO---------------------------------------------
+<img width="720" height="1600" alt="imagen_2026-04-24_192135837" src="https://github.com/user-attachments/assets/98045f10-5930-4c01-a03d-5797578989aa" />
+
+
+<img width="720" height="1600" alt="imagen_2026-04-24_192120138" src="https://github.com/user-attachments/assets/c2b996ec-5878-45b8-978c-302ef60a9637" />
+
+
+<img width="720" height="1600" alt="imagen_2026-04-24_192424915" src="https://github.com/user-attachments/assets/e7757b32-3017-44db-b44d-cb84398a47b7" />
+
+
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/866a9268-d332-4cf6-9a47-b536d5b7b19b" />
+
